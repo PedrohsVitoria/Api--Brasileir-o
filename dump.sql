@@ -27,3 +27,10 @@ CREATE TABLE Classificacao_serie_A (
     GolsSofridos INT,
     SaldoGols INT
 );
+
+create table usuarios_permitidos (
+	id serial primary key,
+	nome text ,
+  email text , 
+  senha text
+	);
