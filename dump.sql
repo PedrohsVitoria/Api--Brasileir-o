@@ -34,3 +34,12 @@ create table usuarios_permitidos (
   email text , 
   senha text
 	);
+
+  create table tabela_de_jogos(
+	id_jogo serial primary key,
+  rodada int,
+  time_mandante int references times_serie_a(id) ,
+  time_visitante int references times_serie_a(id),
+  gols_mandante int ,
+  gols_visitante int
+);
