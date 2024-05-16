@@ -1,12 +1,29 @@
 # Api--Brasileir-o
 
-- Introdução
+## Introdução
 
-Projeto de criação de tabelas que interagem entre elas. Onde o tema principal é a classificação do campeonato brasileiro da serie A 2024.
+ Este projeto é uma implementação de um CRUD (Create, Read, Update, Delete) de uma API RESTful(Baseada no campeonato brasileiro da serie A 2024). A API permite a manipulação de recursos por meio de requisições HTTP aos endpoints especificados.
 
-- Objetivo 
 
-Demonstrar por meio deste projeto , algumas funcionalidades de backend . 
+## Objetivo 
+
+O principal objetivo deste projeto é ampliar e enriquecer meu portfólio pessoal de projetos de desenvolvimento. Com este projeto, busco demonstrar minhas habilidades técnicas, experiência prática e criatividade na área de  desenvolvimento web (backend),
+
+Além disso, este projeto servirá como uma oportunidade para explorar novas tecnologias, aprimorar minhas habilidades existentes e demonstrar meu comprometimento com a aprendizagem contínua no campo da tecnologia.
+
+## Tecnologias Utilizadas
+
+- JAVASCRIPT
+- pg
+- express
+- bcrypt(criptografia de senha)
+- dotenv (variáveis de ambiente)
+- joi (validações)
+- jwt(Autenticação)
+- knex (query builder)
+
+
+
 
 ## Descrição do projeto : 
 
@@ -17,12 +34,12 @@ Demonstrar por meio deste projeto , algumas funcionalidades de backend .
 - Editar usuário
 - listar times
 - Filtrar times por estado
+- Listar tabela por rodada
 
 
 ## **Banco de dados**
 
 Criar um Banco de Dados PostgreSQL chamado `brasileirao` contendo as seguintes tabelas e colunas:  
-**ATENÇÃO! Os nomes das tabelas e das colunas a serem criados devem seguir exatamente os nomes listados abaixo.**
 
 - clasificacao_serie_a
   - posicao
@@ -204,7 +221,7 @@ Essa é a rota que permite o usuario cadastrado realizar o login no sistema.
 
 #### `PUT` `/usuario`
 
-Essa é a rota que será chamada quando o usuário quiser realizar alterações no seu próprio usuário.  
+Essa é a rota que será chamada quando o usuário quiser realizar alterações no seu próprio cadastro.  
 **Atenção!:** O usuário deverá ser identificado através do ID presente no token de autenticação.
 
 - **Requisição**  
