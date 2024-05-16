@@ -8,6 +8,9 @@ const editarUsuario = require('../UsuariosPermitidos/editarUsuario')
 const deletarUsuario = require('../UsuariosPermitidos/deletarUsuario')
 const adicionarJogo = require('../controladores_tabela/adicionarJogo')
 const listarTabela = require('../controladores_tabela/tabelasDeJogos')
+const validarRequisicao = require('../intermediarios/validarRequisicao')
+const { schemaCadastroUsuario } = require('../validacoes/validacaoCadastrarUsuario')
+const { schemaLoginUsuario } = require('../validacoes/validacaoLoginUsuario')
 
 
 const rotas = express()
@@ -15,8 +18,8 @@ const rotas = express()
 rotas.get('/times', listarTimes)
 rotas.post('/filtro', filtrarTimes)
 
-rotas.post('/usuario', cadastrarUsuario)
-rotas.post('/login', login)
+rotas.post('/usuario', validarRequisicao(schemaCadastroUsuario), cadastrarUsuario)
+rotas.post('/login', validarRequisicao(schemaLoginUsuario), login)
 
 rotas.get('/tabela', listarTabela)
 

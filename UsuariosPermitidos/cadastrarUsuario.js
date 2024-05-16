@@ -6,19 +6,13 @@ const cadastrarUsuario = async (req, res) => {
     const { nome, email, senha } = req.body
 
     try {
-        if (!nome) {
-            return res.status(400).json({ mensagem: 'O necessário informar o nome.' })
-        }
-        if (!email) {
-            return res.status(400).json({ mensagem: 'O necessário informar o email.' })
-        }
-        if (!senha) {
-            return res.status(400).json({ mensagem: 'O necessário informar a senha.' })
-        }
-        const emailExiste = await knex('usuarios_permitidos').where('email', email)
+
+        const emailExiste = await knex('usuarios_permitidos')
+            .where('email', email)
+            .first()
 
 
-        if (emailExiste.length > 0) {
+        if (emailExiste) {
             return res.status(400).json({ mensagem: 'Já existe usuário cadastrado com o e-mail informado.' })
         }
 
@@ -28,7 +22,8 @@ const cadastrarUsuario = async (req, res) => {
             email,
             senha: senhaCriptografada
         }
-        const query = await knex('usuarios_permitidos').insert(cadastrarUsuario)
+        const query = await knex('usuarios_permitidos')
+            .insert(cadastrarUsuario)
 
 
         const usuarioCadastrado = {
