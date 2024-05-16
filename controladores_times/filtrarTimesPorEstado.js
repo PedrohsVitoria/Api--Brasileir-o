@@ -26,7 +26,7 @@ const filtrarTimes = async (req, res) => {
         if (resultadosFiltrados.length < 1) {
             return res.status(400).json({ Mensagem: 'Esse estado não possui representantes na serie A.' })
         }
-        return res.status(200).json({ Mensagem: `Times estado ${estadoUpperCase} que participam do campeonato: ${resultadosFiltrados} ` })
+        return res.status(200).json({ Mensagem: `Times do estado ${estadoUpperCase} que participam do campeonato: ${resultadosFiltrados} ` })
     } catch (error) {
         console.log(error.message)
         return res.status(500).json({ mensagem: 'Erro interno do servidor.' })

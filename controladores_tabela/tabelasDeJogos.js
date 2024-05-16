@@ -2,8 +2,9 @@ const knex = require('../src/conexao')
 
 const listarTabela = async (req, res) => {
     const { rodada } = req.body
+
     if (rodada > 38) {
-        return res.status(400).json({ erro: "O campeonato só possui 38 rodadas. " })
+        return res.status(400).json({ mensagem: "O campeonato só possui 38 rodadas. " })
     }
     try {
 
